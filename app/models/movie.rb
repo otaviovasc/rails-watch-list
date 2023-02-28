@@ -4,4 +4,6 @@ class Movie < ApplicationRecord
 
   validates :title, :overview, uniqueness: true
   validates :title, :overview, presence: true
+
+  MOVIES = Movie.all
 end

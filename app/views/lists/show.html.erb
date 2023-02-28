@@ -1,5 +1,27 @@
 <div class="container">
   <h1>Your list</h1>
   <strong><h2><%= @list.name %> </h2></strong>
+
+  <div class="cards-grid">
+    <% @bookmark.each do |bookmark| %>
+      <div class="card-trip">
+        <div class="bookmark">
+          <%# link_to bookmark_path(@bookmark) do %>
+            <%= image_tag "bookmark.png" %>
+          <%# end %>
+        </div>
+
+        <%= image_tag "#{Movie.find(bookmark[:movie_id]).poster_url}", id: "banner"%>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= Movie.find(bookmark[:movie_id]).title %></h2>
+            <p><%= Movie.find(bookmark[:movie_id]).overview %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to 'Add Movies to list |', new_list_bookmark_path(@list) %>
   <%= link_to 'Back to lists', lists_path %>
 </div>

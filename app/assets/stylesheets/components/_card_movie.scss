@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.card-trip > img {
+#banner {
   height: 200px;
   width: 100%;
   object-fit: cover;
@@ -30,10 +30,11 @@
   margin: 0;
 }
 
-#bookmark {
+.bookmark > img {
   position: absolute;
-  height: 35px;
-  width: 35px;
+  height: 55px;
+  width: 45px;
+  padding-bottom: 10px;
   background-color: rgba($color: #ffffff, $alpha: .5);
 }
 
