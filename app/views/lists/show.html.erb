@@ -5,11 +5,9 @@
   <div class="cards-grid">
     <% @bookmark.each do |bookmark| %>
       <div class="card-trip">
-        <div class="bookmark">
-          <%# link_to bookmark_path(@bookmark) do %>
-            <%= image_tag "bookmark.png" %>
-          <%# end %>
-        </div>
+        <%= link_to list_bookmark_path(bookmark), class:"bookmark", data: { turbo_method: :delete } do %>
+          <%= image_tag "bookmark.png" %>
+        <% end %>
 
         <%= image_tag "#{Movie.find(bookmark[:movie_id]).poster_url}", id: "banner"%>
         <div class="card-trip-infos">
