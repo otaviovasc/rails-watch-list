@@ -8,10 +8,13 @@
 
 
 <div class="container">
-  <%= link_to "Add a new list", new_list_path, class: "btn btn-primary float-end" %>
-  <ul>
+  <%= link_to "Add a new list", new_list_path, class: "btn btn-success my-3" %>
+  <h2>My Lists</h2>
+  <div class="cards-grid">
     <% @lists.each do |list| %>
-      <li><%= link_to list.name, list_path(list), class: "btn btn-flat mb-2"  %></li>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.poster_url %>)">
+        <%= link_to list.name, list_path(list), class: "btn btn-flat" %>
+      </div>
     <% end %>
-  </ul>
+  </div>
 </div>

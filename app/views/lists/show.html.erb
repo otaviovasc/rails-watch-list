@@ -1,11 +1,18 @@
 <div class="container">
-  <h1>Your list</h1>
-  <strong><h2><%= @list.name %> </h2></strong>
+  <strong><h1><%= @list.name %> </h1></strong>
 
+  <%# Buttons %>
+  <div class="mb-3">
+    <%= link_to 'Back to lists', lists_path, class: "btn btn-secondary" %>
+    <%= link_to 'Add Movies to list', new_list_bookmark_path(@list), class: "btn btn-primary" %>
+    <%= link_to 'Delete this list', list_path(@list), class: "btn btn-danger" , data: { turbo_method: :delete, turbo_confirm: 'Delete this list and it\'s bookmarks?' } %>
+  </div>
+
+  <%# Cards grid %>
   <div class="cards-grid">
     <% @bookmark.each do |bookmark| %>
       <div class="card-trip">
-        <%= link_to list_bookmark_path(bookmark), class:"bookmark", data: { turbo_method: :delete } do %>
+        <%= link_to list_bookmark_path(bookmark), class: "bookmark", data: { turbo_method: :delete, turbo_confirm: 'Delete bookmark?' } do %>
           <%= image_tag "bookmark.png" %>
         <% end %>
 
@@ -20,6 +27,4 @@
     <% end %>
   </div>
 
-  <%= link_to 'Add Movies to list |', new_list_bookmark_path(@list) %>
-  <%= link_to 'Back to lists', lists_path %>
 </div>
